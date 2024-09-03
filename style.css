@@ -31,10 +31,6 @@ a {
   text-decoration: none;
 }
 
-svg {
-  vertical-align: middle;
-}
-
 p {
   margin: 0.5rem 0;
 }
@@ -171,9 +167,15 @@ img {
   color: transparent;
 }
 
-.error-text{
+.error-text-div{
   color: rgb(235,57,66);
-  font-size: 13px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  text-align: left;
+  width: 100%;
+  display: none;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 
