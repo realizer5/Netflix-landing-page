@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,900&display=swap');
 :root {
   --primary-color: #e50914;
   --primary-hover: #be000a;
@@ -54,7 +55,8 @@ img {
   height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);
-  box-shadow: inset 10px 10px 250px rgba(0, 0, 0, 0.5), inset -10px -10px 250px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 10px 10px 250px rgba(0, 0, 0, 0.5),
+    inset -10px -10px 250px rgba(0, 0, 0, 0.5);
 }
 
 .showcase-top {
@@ -73,6 +75,11 @@ img {
   width: 150px;
 }
 
+.showcase-top-div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
 .showcase-content {
   max-width: 42rem;
@@ -109,7 +116,7 @@ img {
   margin-bottom: 0;
 }
 
-.showcase-content form{
+.showcase-content form {
   width: 100%;
   display: flex;
   align-items: center;
@@ -117,14 +124,14 @@ img {
   margin-top: 1rem;
 }
 
-.input-div{
+.input-div {
   position: relative;
   flex: 2;
   display: flex;
   align-items: center;
 }
 
-.showcase-content form input{
+.showcase-content form input {
   font-size: 1rem;
   line-height: 1.5;
   background-color: rgba(15, 15, 15, 0.575);
@@ -136,7 +143,7 @@ img {
   width: 100%;
 }
 
-.input-div label{
+.input-div label {
   position: absolute;
   font-size: 1rem;
   font-weight: 400;
@@ -147,28 +154,28 @@ img {
   transition-timing-function: cubic-bezier(0.9, 0, 0.51, 1);
 }
 
-#inputMail:not(:placeholder-shown) ~ label{
+#inputMail:not(:placeholder-shown) ~ label {
   font-size: 0.75rem;
   transform: translateY(-0.5rem);
 }
 
-#inputMail:focus{
+#inputMail:focus {
   outline: #fff solid 2px;
   outline-offset: 2px;
 }
 
-#inputMail:focus ~ label{
+#inputMail:focus ~ label {
   font-size: 0.75rem;
   transform: translateY(-0.5rem);
   transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
 }
 
-#inputMail::placeholder{
+#inputMail::placeholder {
   color: transparent;
 }
 
-.error-text-div{
-  color: rgb(235,57,66);
+.error-text-div {
+  color: rgb(235, 57, 66);
   font-size: 0.8rem;
   margin-top: 0.5rem;
   text-align: left;
@@ -179,14 +186,14 @@ img {
 }
 
 /* curve */
-.curve-container{
+.curve-container {
   position: relative;
   overflow: hidden;
   height: 7rem;
   z-index: 2;
 }
 
-.curve{
+.curve {
   width: 120%;
   height: 100%;
   display: flex;
@@ -195,15 +202,20 @@ img {
   border-top-left-radius: 50% 100%;
   border-top-right-radius: 50% 100%;
   border-bottom: none;
-  background: radial-gradient( 50% 500% at 50% -420%, rgba(64, 97, 231, 0.4) 80%, rgba(0, 0, 0, 0.1) 100% ),black;
+  background: radial-gradient(
+      50% 500% at 50% -420%,
+      rgba(64, 97, 231, 0.4) 80%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    black;
   background-clip: padding-box;
   position: absolute;
   top: 0;
   left: -10%;
 }
 
-.curve::before{
-  content: '';
+.curve::before {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -212,7 +224,115 @@ img {
   z-index: -1;
   margin-top: -4px;
   border-radius: inherit;
-  background: linear-gradient( to right, rgba(33, 13, 22, 1) 16%, rgba(184, 40, 105, 1), rgba(229, 9, 20, 1), rgba(184, 40, 105, 1), rgba(33, 13, 22, 1) 84% );
+  background: linear-gradient(
+    to right,
+    rgba(33, 13, 22, 1) 16%,
+    rgba(184, 40, 105, 1),
+    rgba(229, 9, 20, 1),
+    rgba(184, 40, 105, 1),
+    rgba(33, 13, 22, 1) 84%
+  );
+}
+
+/* trending cards */
+
+.trending-tabs {
+  position: relative;
+  top: -2.5rem;
+  z-index: 2;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 80rem;
+  width: 90%;
+  padding-inline: 2rem;
+}
+
+.container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+/* netflix removed this feature */
+/* .select-container {
+  margin-top: 1.5rem;
+} */
+
+.trending-card-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 3rem;
+  padding: 1rem 2rem;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  width: 13rem;
+  height: 18rem;
+  transition: transform 200ms ease-in-out;
+  list-style: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+#card1 {
+  background: url(./img/card-1.jpg) no-repeat top center/cover;
+}
+#card2 {
+  background: url(./img/card-2.jpg) no-repeat top center/cover;
+}
+#card3 {
+  background: url(./img/card-3.jpg) no-repeat top center/cover;
+}
+#card4 {
+  background: url(./img/card-4.jpg) no-repeat top center/cover;
+}
+#card5 {
+  background: url(./img/card-5.jpg) no-repeat top center/cover;
+}
+#card6 {
+  background: url(./img/card-6.jpg) no-repeat top center/cover;
+}
+#card7 {
+  background: url(./img/card-7.jpg) no-repeat top center/cover;
+}
+#card8 {
+  background: url(./img/card-8.jpg) no-repeat top center/cover;
+}
+#card9 {
+  background: url(./img/card-9.jpg) no-repeat top center/cover;
+}
+#card10{
+  background: url(./img/card-10.jpg) no-repeat top center/cover;
+}
+.card-nums {
+  font-size: 7.5rem;
+  color: black;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 4px;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  text-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.425);
+  position: relative;
+  left: -1rem;
+}
+
+.card-nums::before{
+  content: attr(data-content);
+  -webkit-text-fill-color: rgb(0,0,0);
+  -webkit-text-stroke: 0;
+  position: absolute;
 }
 
 /* buttons */
@@ -242,14 +362,14 @@ img {
   padding: 0.8rem 1.3rem;
   display: flex;
   align-items: center;
-  svg{
+  svg {
     width: 1.5rem;
     height: inherit;
     margin-left: 0.75rem;
   }
 }
 
-.select-lang{
+.select {
   appearance: none;
   font-size: 1rem;
   background-color: transparent;
@@ -259,25 +379,20 @@ img {
   padding-inline: 2rem;
   margin: 0;
   text-align: left;
-  &:hover{
+  font-weight: 400;
+  &:hover {
     background-color: transparent;
   }
 }
 
-.showcase-top-div{
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.select-div{
+.select-div {
   background-color: rgba(15, 15, 15, 0.575);
   border: 1px solid rgb(117, 117, 117);
   position: relative;
   display: inline-flex;
   align-items: center;
   border-radius: 4px;
-  svg{
+  svg {
     position: absolute;
     width: 1rem;
     height: 1rem;
@@ -285,8 +400,18 @@ img {
     right: auto;
     color: #fff;
   }
-  svg:last-child{
+  svg:last-child {
     right: 0.75rem;
     left: auto;
   }
 }
+/* netflix removed this feature */
+/* 
+.trending-tabs .select {
+  padding-left: 0.8rem;
+  padding-block: 0.5rem;
+}
+
+.trending-tabs .select-div {
+  margin-right: 1rem;
+} */
