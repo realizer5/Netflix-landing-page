@@ -34,3 +34,26 @@ inputMail.addEventListener("input", (e) => {
 //     contentType.innerHTML = `<option value="">Movies - English</option><option value="">Movies - Other languages</option><option value="">Tv Shows - English</option><option value="">Tv Shows - Other languages</option>`;
 //   }
 // });
+
+const leftScroll = document.getElementById("leftScroll");
+const rightScroll = document.getElementById("rightScroll");
+const cardList = document.querySelector(".trending-card-list");
+
+leftScroll.addEventListener("click", (e) => {
+  cardList.scrollLeft -= 1000;
+  setTimeout(() => {
+    console.log(cardList.scrollLeft);
+  }, 1000);
+});
+
+rightScroll.addEventListener("click", (e) => {
+  cardList.scrollLeft += 1000;
+  setTimeout(() => {
+    if (cardList.scrollLeft === cardList.scrollWidth - cardList.offsetWidth) {
+      rightScroll.parentElement.style.right = `-5rem`;
+    } else {
+      rightScroll.parentElement.style.right = `0`;
+    }
+    console.log(cardList.scrollLeft);
+  }, 1000);
+});

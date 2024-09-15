@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,900&display=swap");
 :root {
   --primary-color: #e50914;
   --primary-hover: #be000a;
@@ -242,16 +242,10 @@ img {
   z-index: 2;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 80rem;
-  width: 90%;
-  padding-inline: 2rem;
-}
-
 .container h1 {
   font-size: 2rem;
   font-weight: 700;
+  margin-left: 0.5rem;
 }
 /* netflix removed this feature */
 /* .select-container {
@@ -260,14 +254,15 @@ img {
 
 .trending-card-list {
   margin-top: 1rem;
+  padding: 1rem 2rem;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   gap: 3rem;
-  padding: 1rem 2rem;
   scrollbar-width: none;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
 .card {
@@ -312,7 +307,7 @@ img {
 #card9 {
   background: url(./img/card-9.jpg) no-repeat top center/cover;
 }
-#card10{
+#card10 {
   background: url(./img/card-10.jpg) no-repeat top center/cover;
 }
 .card-nums {
@@ -328,9 +323,9 @@ img {
   left: -1rem;
 }
 
-.card-nums::before{
+.card-nums::before {
   content: attr(data-content);
-  -webkit-text-fill-color: rgb(0,0,0);
+  -webkit-text-fill-color: rgb(0, 0, 0);
   -webkit-text-stroke: 0;
   position: absolute;
 }
@@ -415,3 +410,55 @@ img {
 .trending-tabs .select-div {
   margin-right: 1rem;
 } */
+
+.scroll-btn-div {
+  position: absolute;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 0 0.8rem;
+  z-index: 2;
+}
+
+.scroll-btn-div:has(#leftScroll) {
+  left: 0;
+  transition: left 500ms ease-in-out;
+}
+
+.scroll-btn-div:has(#rightScroll) {
+  right: 0;
+  transition: right 500ms ease-in-out;
+}
+
+.scroll-btn {
+  margin: 0;
+  padding: 0;
+  height: 7.5rem;
+  width: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  transition: opacity 200ms ease-in-out;
+  opacity: 0.8;
+  border-radius: 0.5rem;
+}
+
+.scroll-btn:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* container & wrapper */
+
+.container {
+  margin: 0 auto;
+  max-width: 80rem;
+  width: 90%;
+  padding-inline: 2rem;
+}
+
+.wrapper{
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
