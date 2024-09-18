@@ -41,19 +41,29 @@ const cardList = document.querySelector(".trending-card-list");
 
 leftScroll.addEventListener("click", (e) => {
   cardList.scrollLeft -= 1000;
-  setTimeout(() => {
-    console.log(cardList.scrollLeft);
-  }, 1000);
 });
 
 rightScroll.addEventListener("click", (e) => {
   cardList.scrollLeft += 1000;
-  setTimeout(() => {
-    if (cardList.scrollLeft === cardList.scrollWidth - cardList.offsetWidth) {
-      rightScroll.parentElement.style.right = `-5rem`;
-    } else {
-      rightScroll.parentElement.style.right = `0`;
-    }
-    console.log(cardList.scrollLeft);
-  }, 1000);
 });
+
+cardList.addEventListener("scroll", (e) => {
+  if (cardList.scrollLeft === cardList.scrollWidth - cardList.offsetWidth) {
+    rightScroll.parentElement.style.right = `-5rem`;
+  } else {
+    rightScroll.parentElement.style.right = `0`;
+  }
+  if (cardList.scrollLeft === 0) {
+    leftScroll.parentElement.style.left = `-5rem`;
+  } else {
+    leftScroll.parentElement.style.left = `0`;
+  }
+});
+
+const trendingCards = document.querySelectorAll('.card');
+
+trendingCards.forEach(card=>{
+  card.addEventListener('click', e=>{
+    
+  })
+})

@@ -253,77 +253,86 @@ img {
 } */
 
 .trending-card-list {
-  margin-top: 1rem;
-  padding: 1rem 2rem;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  gap: 3rem;
-  scrollbar-width: none;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  display: flex;
 }
 
-.card {
+.card{
+  flex: 0 0 auto;
+  padding: 1rem 1.5rem;
+  scroll-snap-align: start;
+  scroll-margin-inline-start: 3rem;
+}
+
+.card-content{
   width: 13rem;
   height: 18rem;
+  position: relative;
   transition: transform 200ms ease-in-out;
-  list-style: none;
-  border-radius: 8px;
-  cursor: pointer;
   display: flex;
   align-items: end;
 }
 
-.card:hover {
-  transform: scale(1.1);
+.card-content:hover{
+  transform: scale(1.05);
 }
 
-#card1 {
+#card1 .card-bg{
   background: url(./img/card-1.jpg) no-repeat top center/cover;
 }
-#card2 {
+#card2 .card-bg{
   background: url(./img/card-2.jpg) no-repeat top center/cover;
 }
-#card3 {
+#card3 .card-bg{
   background: url(./img/card-3.jpg) no-repeat top center/cover;
 }
-#card4 {
+#card4 .card-bg{
   background: url(./img/card-4.jpg) no-repeat top center/cover;
 }
-#card5 {
+#card5 .card-bg{
   background: url(./img/card-5.jpg) no-repeat top center/cover;
 }
-#card6 {
+#card6 .card-bg{
   background: url(./img/card-6.jpg) no-repeat top center/cover;
 }
-#card7 {
+#card7 .card-bg{
   background: url(./img/card-7.jpg) no-repeat top center/cover;
 }
-#card8 {
+#card8 .card-bg{
   background: url(./img/card-8.jpg) no-repeat top center/cover;
 }
-#card9 {
+#card9 .card-bg{
   background: url(./img/card-9.jpg) no-repeat top center/cover;
 }
-#card10 {
+#card10 .card-bg{
   background: url(./img/card-10.jpg) no-repeat top center/cover;
 }
-.card-nums {
+
+.card-bg{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 8px;
+}
+
+.card-number {
   font-size: 7.5rem;
   color: black;
   -webkit-text-stroke-color: white;
   -webkit-text-stroke-width: 4px;
   font-family: "Inter", sans-serif;
-  font-weight: 900;
   font-style: normal;
   text-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.425);
-  position: relative;
+  position: absolute;
   left: -1rem;
 }
 
-.card-nums::before {
+.card-number::before {
   content: attr(data-content);
   -webkit-text-fill-color: rgb(0, 0, 0);
   -webkit-text-stroke: 0;
@@ -422,7 +431,7 @@ img {
 }
 
 .scroll-btn-div:has(#leftScroll) {
-  left: 0;
+  left: -5rem;
   transition: left 500ms ease-in-out;
 }
 
@@ -457,8 +466,9 @@ img {
   padding-inline: 2rem;
 }
 
-.wrapper{
+.wrapper {
   position: relative;
   display: flex;
   overflow: hidden;
+  margin-top: 1rem;
 }
