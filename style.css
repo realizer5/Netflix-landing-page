@@ -260,14 +260,14 @@ img {
   display: flex;
 }
 
-.card{
+.card {
   flex: 0 0 auto;
   padding: 1rem 1.5rem;
   scroll-snap-align: start;
   scroll-margin-inline-start: 3rem;
 }
 
-.card-content{
+.card-content {
   width: 13rem;
   height: 18rem;
   position: relative;
@@ -276,42 +276,42 @@ img {
   align-items: end;
 }
 
-.card-content:hover{
+.card-content:hover {
   transform: scale(1.05);
 }
 
-#card1 .card-bg{
+#card1 .card-bg {
   background: url(./img/card-1.jpg) no-repeat top center/cover;
 }
-#card2 .card-bg{
+#card2 .card-bg {
   background: url(./img/card-2.jpg) no-repeat top center/cover;
 }
-#card3 .card-bg{
+#card3 .card-bg {
   background: url(./img/card-3.jpg) no-repeat top center/cover;
 }
-#card4 .card-bg{
+#card4 .card-bg {
   background: url(./img/card-4.jpg) no-repeat top center/cover;
 }
-#card5 .card-bg{
+#card5 .card-bg {
   background: url(./img/card-5.jpg) no-repeat top center/cover;
 }
-#card6 .card-bg{
+#card6 .card-bg {
   background: url(./img/card-6.jpg) no-repeat top center/cover;
 }
-#card7 .card-bg{
+#card7 .card-bg {
   background: url(./img/card-7.jpg) no-repeat top center/cover;
 }
-#card8 .card-bg{
+#card8 .card-bg {
   background: url(./img/card-8.jpg) no-repeat top center/cover;
 }
-#card9 .card-bg{
+#card9 .card-bg {
   background: url(./img/card-9.jpg) no-repeat top center/cover;
 }
-#card10 .card-bg{
+#card10 .card-bg {
   background: url(./img/card-10.jpg) no-repeat top center/cover;
 }
 
-.card-bg{
+.card-bg {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -337,6 +337,32 @@ img {
   -webkit-text-fill-color: rgb(0, 0, 0);
   -webkit-text-stroke: 0;
   position: absolute;
+}
+
+.preview-container {
+  position: fixed;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0px;
+  z-index: 5;
+}
+
+.preview {
+  background-color: rgb(22, 22, 22);
+  border: 1px solid rgb(128,128,128,0.4);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 8px 0px;
+  color: rgb(255,255,255,0.7);
+  max-height: min(90%, 100% - 3rem);
+  max-width: 42rem;
+  /* maybe another div */
+  min-width: 17rem;
+  overflow-y: auto;
+  flex: 1 1 auto;
 }
 
 /* buttons */

@@ -60,10 +60,38 @@ cardList.addEventListener("scroll", (e) => {
   }
 });
 
-const trendingCards = document.querySelectorAll('.card');
+const trendingCards = document.querySelectorAll(".card");
+// lightbox HTML
+const div = document.createElement("div");
+div.setAttribute("class", "preview-container");
+div.innerHTML = `<div class="preview">
+  <div class="preview-top">
+      <div class="preview-bg"></div>
+  </div>
+  <div class="preview-bottom">
+      <ul class="preview-list">
+      </ul>
+      <p class="preview-para"></p>
+      <button type="submit" class="btn btn-lg">
+        <span>Get Started</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="chevron-right">
+                        <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+  </div>
+</div>`;
 
-trendingCards.forEach(card=>{
-  card.addEventListener('click', e=>{
-    
-  })
-})
+const renderLightbox = (cardID) => {
+  document.body.append(div);
+  document.body.style.overflow = `hidden`;
+  const previewBg = document.querySelector(".preview-bg");
+  previewBg.style.background = `url(./img/preview-${cardID}.jpg`;
+};
+
+trendingCards.forEach((card) => {
+  card.addEventListener("click", (e) => {
+    renderLightbox(card.getAttribute("id"));
+  });
+});
