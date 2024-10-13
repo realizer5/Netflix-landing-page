@@ -14,10 +14,10 @@ inputMail.addEventListener("input", (e) => {
   const inputValid = inputMail.checkValidity();
   if (inputValid === true && inputData.length > 0) {
     inputMail.style.borderColor = "rgb(43,184,113)";
-    errorTextDiv.style.display = "none";
+    errorTextDiv.style.visibility = "hidden";
   } else {
     inputMail.style.borderColor = "rgb(235,57,66)";
-    errorTextDiv.style.display = "flex";
+    errorTextDiv.style.visibility = "visible";
   }
 });
 
@@ -37,11 +37,13 @@ const rightScroll = document.getElementById("rightScroll");
 const cardList = document.querySelector(".trending-card-list");
 
 leftScroll.addEventListener("click", (e) => {
-  cardList.scrollLeft -= 1000;
+  // cardList.scrollLeft -= 1000;
+  cardList.scrollLeft -= cardList.offsetWidth / 1.1
 });
 
 rightScroll.addEventListener("click", (e) => {
-  cardList.scrollLeft += 1000;
+  cardList.scrollLeft += cardList.offsetWidth / 1.1
+  // cardList.scrollLeft += 1000;
 });
 
 cardList.addEventListener("scroll", (e) => {

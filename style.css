@@ -119,8 +119,6 @@ img {
 .showcase-content form {
   width: 100%;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
   margin-top: 1rem;
 }
 
@@ -141,6 +139,10 @@ img {
   outline: none;
   color: #fff;
   width: 100%;
+}
+
+.showcase-content form .btn-lg{
+  margin-left: 1rem;
 }
 
 .input-div label {
@@ -175,12 +177,13 @@ img {
 }
 
 .error-text-div {
+  visibility: hidden;
   color: rgb(235, 57, 66);
   font-size: 0.8rem;
   margin-top: 0.5rem;
   text-align: left;
   width: 100%;
-  display: none;
+  display: flex;
   align-items: center;
   gap: 0.2rem;
 }
@@ -643,6 +646,7 @@ footer .container:last-child div{
   &:hover {
     background-color: transparent;
   }
+  z-index: 4;
 }
 
 .select-div {
@@ -720,7 +724,7 @@ footer .container:last-child div{
 .container {
   margin: 0 auto;
   max-width: 105rem;
-  width: 90%;
+  width: 97%;
   padding-inline: 2rem;
 }
 
@@ -729,4 +733,110 @@ footer .container:last-child div{
   display: flex;
   overflow: hidden;
   margin-top: 1rem;
+}
+
+
+/* media queries */
+@media (max-width: 960px) {
+  .showcase-top{
+    margin-inline: 1rem;
+    font-size: 1rem;
+  }
+  .netflix-logo{
+    width: 100px;
+  }
+  .showcase-content{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    max-width: 90%;
+    h1{
+      font-size: 2rem;
+    }
+  }
+  .curve{
+    width: 180%;
+    left: -40%;
+  }
+  .btn-lg{
+    font-size: 1.2rem;
+  }
+ .select-container .select-div .select{
+    width: 100%;
+  }
+ .select-container .select-div{
+    display: flex;
+  }
+  .select-div:last-child{
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  .container h1{
+    font-size: 1.2rem;
+  }
+  .card{
+    padding: 0.3rem 0.6rem;
+  }
+  .card-content{
+    height: 9.8rem;
+    width: 7rem;
+  }
+  .card-number{
+    font-size: 4rem;
+    left: -0.5rem;
+  }
+  .container h3{
+    font-size: 1.2rem;
+  }
+  .faq-list li div{
+    font-size: 1.2rem;
+  }
+  .container > h3{
+    margin-top: 3rem;
+  }
+  .offer-card-container{
+    grid-template-columns: 1fr;
+  }
+  .offer-card{
+    padding-bottom: 5rem;
+  }
+  section .showcase-content{
+    margin-bottom: 0rem;
+    max-width: 90%;
+  }
+  .footer-list li{
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .showcase-top .select-div .select{
+    width: 0;
+ }
+ .showcase-content form{
+  flex-direction: column;
+  align-items: center;
+ }
+ .showcase-content form .input-div{
+   width: 100%;
+   margin-bottom: 1rem;
+   line-height: 1;
+  }
+ .showcase-content form input{
+    line-height: 1;
+  }
+  section .showcase-content{
+    align-items: flex-start;
+  }
+  section .showcase-content form{
+    align-items: flex-start;
+    .btn-lg{
+      margin-left: 0;
+    }
+  }
+  .footer-list li{
+    flex: 0 0 100%;
+  }
+  .btn-grey{
+    padding: 1.5rem;
+  }
 }
