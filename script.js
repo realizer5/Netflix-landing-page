@@ -72,16 +72,8 @@ div.innerHTML = `<div class="preview">
       <img src="" alt="">
   </div>
   <div class="preview-bottom">
-      <ul class="preview-list">
-      <li>2024</li>
-      <li>A</li>
-      <li>Movie</li>
-      <li>Thrillers</li>
-      <li>Dramas</li>
-      </ul>
-      <p class="preview-para">
-      When several children disappear at the hands of a serial killer in Sector 36, a corrupt cop is forced to pursue the chilling case at all costs.
-      </p>
+      <ul class="preview-list"></ul>
+      <p class="preview-para"></p>
       <button type="submit" class="btn btn-md">
         <span>Get Started</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -93,8 +85,42 @@ div.innerHTML = `<div class="preview">
   </div>
 </div>`;
 
+const previewData = {
+  card1:
+    "<li>2024</li><li>A</li><li>Movie</li><li>Thrillers</li><li>Dramas</li>",
+  card2:
+    "<li>2024</li><li>U/A 13+</li><li>Movie</li><li>Action</li><li>Romance</li><li>Dramas</li>",
+  card3:
+    "<li>2024</li><li>A</li><li>Movie</li><li>Comedies</li><li>Action</li><li>Thrillers</li>",
+  card4:
+    "<li>2024</li><li>U/A 16+</li><li>Movie</li><li>Thrillers</li><li>Dramas</li>",
+  card5:
+    "<li>2024</li><li>U/A 16+</li><li>Movie</li><li>Comedies</li><li>Romance</li>",
+  card6:
+    "<li>2024</li><li>U/A 16+</li><li>Movie</li><li>Comedies</li><li>Dramas</li>",
+  card7:
+    "<li>2024</li><li>U/A 13+</li><li>Movie</li><li>Action</li><li>Sci-Fi</li><li>Adventure</li>",
+  card8:
+    "<li>2017</li><li>U/A 13+</li><li>Movie</li><li>Action</li><li>Thrillers</li><li>Sci-Fi</li>",
+  card9:
+    "<li>2019</li><li>U/A 13+</li><li>Movie</li><li>Action</li><li>Adventure</li>",
+  card10: "<li>2024</li><li>U/A 16+</li><li>Movie</li><li>Dramas</li>",
+};
+const previewParaText = {
+  card1: `When several children disappear at the hands of a serial killer in Sector 36, a corrupt cop is forced to pursue the chilling case at all costs.`,
+  card2: `A heroic tax officer puts his life and career on the line to carry out a dangerous raid on a politician suspected of corruption. Based on a true story.`,
+  card3: `When a mysterious enemy frames their late captain for corruption, Miami cops Mike and Marcus go rogue to expose a conspiracy — and clear their own names.`,
+  card4: `A former Marine confronts corruption in a small town when local law enforcement unjustly seizes the bag of cash he needs to post his cousin's bail.`,
+  card5: `When a man comes home between COVID lockdowns, he connects with old friends and falls for a woman who feels influenced by her caste while finding love.`,
+  card6: `When fate brings two strangers from different worlds together, they go on an impromptu journey, learning about life and each other along the way.`,
+  card7: `The future of those in the dystopian city of Kasi is altered when the destined arrival of Lord Vishnu's final avatar launches a war against darkness.`,
+  card8: `When a weather-controlling satellite system suddenly breaks down, a scientist must race against the clock to prevent a climate cataclysm on Earth.`,
+  card9: `Sent to England to stop a deadly bio-threat, US agent Luke Hobbs is forced to team up with his nemesis, mercenary Deckard Shaw.`,
+  card10: `When his prized possession gets stolen, a barber seeks help from the police, who jeer at his request — until they learn what they're really looking for.`,
+};
+
 const renderLightbox = (cardID) => {
-  document.body.append(div);
+  cardList.append(div);
   document.body.style.overflow = `hidden`;
   const previewBg = document.querySelector(".preview-bg");
   previewBg.style.backgroundImage = `url(./img/preview-${cardID}.jpg`;
@@ -102,11 +128,29 @@ const renderLightbox = (cardID) => {
     "src",
     `./img/preview-${cardID}-title.png`
   );
+  const previewList = document.querySelector(".preview-list");
+  previewList.innerHTML = previewData[cardID];
+  const previewPara = document.querySelector(".preview-para");
+  previewPara.innerText = previewParaText[cardID];
+  const preview = div.children[0];
+  setTimeout(() => {
+    div.style.opacity = "1";
+    preview.style.transform = "scale(1)";
+    preview.style.transitionDelay = "100ms";
+    div.style.transitionDelay = "0ms";
+  }, 100);
 };
 
 const removeLightbox = (e) => {
-  div.remove();
-  document.body.style.overflow = `visible`;
+  const preview = div.children[0];
+  div.style.opacity = "0";
+  preview.style.transform = "scale(0.95)";
+  preview.style.transitionDelay = "0ms";
+  div.style.transitionDelay = "100ms";
+  setTimeout(() => {
+    div.remove();
+    document.body.style.removeProperty("overflow");
+  }, 500);
 };
 
 trendingCards.forEach((card) => {
@@ -119,4 +163,14 @@ div.addEventListener("click", (e) => {
   if (e.target.matches(".preview-container")) {
     removeLightbox();
   }
+});
+
+const faqItem = document.querySelectorAll(".faq-list li");
+const faqAnswer = document.querySelectorAll(".faq-list li div");
+const faqItemSvg = document.querySelectorAll(".btn-grey svg");
+faqItem.forEach((item, count) => {
+  item.addEventListener("click", (e) => {
+    faqAnswer[count].classList.toggle('visible');
+    faqItemSvg[count].classList.toggle('visible');
+  });
 });
